@@ -1,0 +1,7 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+#This script needs to run to periodically refresh the crontab if things are aded or removed
+* * * * * /app/refresh_cron.sh >> /proc/1/fd/1 2>> /proc/1/fd/2
+#Pipe script output into the stdout of the container
+* * * * * /usr/local/bin/python /app/script1.py >> /proc/1/fd/1 2>> /proc/1/fd/2
+*/5 * * * * /usr/local/bin/python /app/script2.py >> /proc/1/fd/1 2>> /proc/1/fd/2
