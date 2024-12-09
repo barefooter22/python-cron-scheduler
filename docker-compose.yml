@@ -7,3 +7,5 @@ services:
     volumes:
       - ./crontab:/etc/cron.d/python-scheduler
       - ./scripts:/app/scripts
+      - ./data:/app/data
+      - ./tmp:/tmp
